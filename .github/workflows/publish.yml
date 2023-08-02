@@ -1,6 +1,6 @@
 name: publish-atlassian-pipeline-serverless
 
-on: [push]
+on: [push, workflow_dispatch]
 
 jobs:
   publish-atlassian-pipeline-serverless-image:
