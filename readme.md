@@ -1,3 +1,5 @@
+Github container package
+
 This docker image has the following :
 
 * nodejs (v14)
@@ -8,3 +10,4 @@ This docker image has the following :
 * py3-pip
 * wget
 * serverless
+* jq

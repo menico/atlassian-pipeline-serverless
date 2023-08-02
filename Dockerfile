@@ -15,9 +15,6 @@ RUN apk update && apk add --update --no-cache \
 
 RUN apk --no-cache add --virtual builds-deps build-base python3
 
-# Update NPM
-RUN npm config set unsafe-perm true
-RUN npm update -g
 
 # Install AWSCLI
 RUN pip install --upgrade pip && \
@@ -25,3 +22,5 @@ RUN pip install --upgrade pip && \
 
 # Install Serverless Framework
 RUN npm install -g serverless
+
+LABEL org.opencontainers.image.source="https://github.com/menico/atlassian-pipeline-serverless"

@@ -1,0 +1,23 @@
+name: publish-atlassian-pipeline-serverless
+
+on: [push]
+
+jobs:
+  publish-atlassian-pipeline-serverless-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build the  atlassian-pipeline-serverless Docker image
+        run: |
+          docker build . --tag ghcr.io/menico/atlassian-pipeline-serverless:latest
+          docker run ghcr.io/menico/atlassian-pipeline-serverless:latest
+          docker push ghcr.io/menico/atlassian-pipeline-serverless:latest
