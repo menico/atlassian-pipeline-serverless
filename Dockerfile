@@ -10,6 +10,7 @@ RUN apk update && apk add --update --no-cache \
     py3-pip \
     py-cryptography \
     wget \
+    jq \
     curl
 
 RUN apk --no-cache add --virtual builds-deps build-base python3
